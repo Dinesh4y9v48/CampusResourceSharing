@@ -9,19 +9,14 @@ import java.util.List;
 
 /**
  * CampusSharingUI.java
- *
  * Adds:
  *  - Owner Email field on add resource (required for chat).
  *  - Chat support (local, serialized): Chat with Owner & Conversations list.
- *
  * How to run:
+ *
  * 1) Save as CampusSharingUI.java
  * 2) Compile: javac CampusSharingUI.java
  * 3) Run:     java CampusSharingUI
- *
- * Note:
- * - Email verification is simulated.
- * - Chat is local-only (no network). Messages serialized to data/chats.ser
  */
 
 public class CampusSharingUI extends JFrame {
@@ -458,8 +453,6 @@ public class CampusSharingUI extends JFrame {
         lblStatus.setText("Deleted: " + r.name);
     }
 
-    // ===== Chat features =====
-
     // Open chat with owner for selected resource
     private void chatWithOwnerForSelected() {
         int sel = table.getSelectedRow();
@@ -500,8 +493,6 @@ public class CampusSharingUI extends JFrame {
         ChatDialog cd = new ChatDialog(this, me, other);
         cd.setVisible(true);
     }
-
-    // ===== Roles =====
     private void applyRoleSettings() {
         btnDelete.setEnabled(isAdminMode);
         // chat buttons enabled only when ownerEmail exists / user logged in; but we keep enabled and check on click.
@@ -513,9 +504,6 @@ public class CampusSharingUI extends JFrame {
             lblStatus.setText("User mode. Delete disabled.");
         }
     }
-
-    // ===== Dialog classes =====
-
     // Login dialog unchanged except static isPlausibleEmail used above
     static class LoginDialog extends JDialog {
         private final JTextField tfEmail = new JTextField(24);
@@ -717,8 +705,6 @@ public class CampusSharingUI extends JFrame {
             return success;
         }
     }
-
-    // ===== main =====
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); } catch (Exception ignored) {}

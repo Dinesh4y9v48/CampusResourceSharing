@@ -25,8 +25,7 @@ public class CampusSharingUI extends JFrame {
             "admin@campus.edu",
             "superadmin@campus.edu"
     ));
-
-    // ===== Data models =====
+    
     static class Resource implements Serializable {
         private static final long serialVersionUID = 2L;
         String id;
@@ -138,7 +137,7 @@ public class CampusSharingUI extends JFrame {
         }
     }
 
-    // ===== Persistence for resources =====
+    //Persistence for resources 
     static class ResourceStore {
         private final File file;
         ResourceStore(String path) {
@@ -171,7 +170,7 @@ public class CampusSharingUI extends JFrame {
         }
     }
 
-    // ===== UI components =====
+    // UI components 
     private final DefaultTableModel tableModel;
     private final JTable table;
     private final JTextField tfName = new JTextField(16);
